@@ -3,6 +3,7 @@ package com.example;
 
 import java.util.Arrays;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +12,11 @@ import org.springframework.context.annotation.Bean;
 
 
 /**
+ * Application类不放在目前的位置，就要加scanpackage参数
  * @author david
  */
 @SpringBootApplication
+@MapperScan("com.example.dao")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -28,7 +31,7 @@ public class Application {
             String[] beanNames = ctx.getBeanDefinitionNames();
             Arrays.sort(beanNames);
             for (String beanName : beanNames) {
-                System.out.println(beanName);
+//                System.out.println(beanName);
             }
 
         };
